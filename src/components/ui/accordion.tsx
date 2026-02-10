@@ -12,24 +12,10 @@ export interface FAQItem {
   id: string;
   question: string;
   answer: string;
-  category?: string;
+  category: string | null;
   created_at: string;
+  updated_at: string;
 }
-
-export const FAQ_DATA: FAQItem[] = [
-  {
-    id: '550e8400-e29b-41d4-a716-446655440000',
-    question: 'Hvad er diaBrave?',
-    answer: 'diaBrave er et værktøj skabt til at hjælpe børn med diabetes og deres omsorgspersoner.',
-    created_at: new Date().toISOString(),
-  },
-  {
-    id: '550e8400-e29b-41d4-a716-446655440001',
-    question: 'Hvad er Relay-mode?',
-    answer: 'En funktion der gør det sikkert og nemt at overlevere ansvar til f.eks. skole eller pædagoger.',
-    created_at: new Date().toISOString(),
-  },
-];
 
 export function Accordion({ items }: { items: FAQItem[] }) {
   const [openId, setOpenId] = useState<string | null>(null);
