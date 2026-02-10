@@ -6,7 +6,9 @@ import { AnimatedIcon } from '@/components/animated-icon';
 import { HintRow } from '@/components/hint-row';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import { Accordion } from '@/components/ui/accordion';
 import { WebBadge } from '@/components/web-badge';
+import { FAQ_DATA } from '@/constants/faq';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
 
 function getDevMenuHint() {
@@ -54,6 +56,14 @@ export default function HomeScreen() {
             hint={<ThemedText type="code">npm run reset-project</ThemedText>}
           />
         </ThemedView>
+
+        <Accordion
+          items={FAQ_DATA.map((item) => ({
+            id: item.id,
+            title: item.question,
+            content: item.answer,
+          }))}
+        />
 
         {Platform.OS === 'web' && <WebBadge />}
       </SafeAreaView>
