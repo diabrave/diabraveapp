@@ -17,6 +17,28 @@ At mindske det mentale load for familier ved at skabe en sikker bro ("Relay") me
 
 Projektet er under aktiv udvikling.
 
+## Værktøjer & Installation
+
+For at bidrage til diaBrave skal du have følgende værktøjer installeret:
+
+### 1. Docker Desktop
+Nødvendigt for at køre det lokale Supabase-miljø (database, auth, osv.).
+- [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
+### 2. Supabase CLI
+Bruges til database-migrationer og lokalt udviklingsmiljø.
+- **Windows (via Scoop):** `scoop bucket add supabase https://github.com/supabase/scoop-bucket.git && scoop install supabase`
+- **macOS/Linux (via Homebrew):** `brew install supabase/tap/supabase`
+
+### 3. Gemini CLI
+Vores AI-udviklingsagent, der hjælper med kodning og arkitektur.
+- **Installation:** `npm install -g @google/gemini-cli`
+
+### 4. Node.js & npm
+- Vi anbefaler seneste LTS version.
+
+---
+
 # **_Standard Expo README.md_**
 
 # Welcome to your Expo app 👋
