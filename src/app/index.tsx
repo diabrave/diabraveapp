@@ -28,7 +28,7 @@ export default function HomeScreen() {
         setFaqs(data || []);
       } catch (err) {
         console.error('Error fetching FAQs:', err);
-        setError('Kunne ikke hente FAQ. Prøv igen senere.');
+        setError('Fejl ved hentning af FAQ: ' + (err instanceof Error ? err.message : 'Ukendt fejl'));
       } finally {
         setLoading(false);
       }
@@ -53,7 +53,7 @@ export default function HomeScreen() {
           {loading ? (
             <ActivityIndicator size="large" color={theme.text} style={styles.loader} />
           ) : error ? (
-            <ThemedText style={styles.errorText}>{error}</ThemedText>
+            <ThemedText style={[styles.errorText, { color: theme.error }]}>{error}</ThemedText>
           ) : (
             <Accordion items={faqs} />
           )}
@@ -93,7 +93,6 @@ const styles = StyleSheet.create({
     marginTop: Spacing.four,
   },
   errorText: {
-    color: '#ff4444',
     textAlign: 'center',
     marginTop: Spacing.four,
   },
