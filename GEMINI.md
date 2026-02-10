@@ -1,18 +1,22 @@
-# Context for Gemini AI - Project: diaBrave
+# Project context: diaBrave
 
-## Project Specs
-- **User:** Senior Developer (10+ years experience).
-- **Core Goal:** T1D management with a focus on "Relay" (delegating care).
-- **Architecture:** Local-first with WatermelonDB syncing to Supabase via RPC.
-- **Language:** Primary focus is the Danish market, but branding is international.
+## Core Info
+- **Tech:** React Native (Expo), WatermelonDB (local-first), Supabase (Auth/Sync).
+- **Brand:** diaBrave (Helping kids & parents manage T1D).
+- **Architecture:** "Relay" mode for schools/caregivers using RLS, and a fun gamification app target kids.
+- **License:** AGPL-3.0.
 
-## Development Rules
-- Use TypeScript for everything.
-- Prefer functional components and hooks.
-- Security first: RLS is mandatory for all user-specific tables.
-- Keep UI child-friendly and empowering.
+## Tech Stack Details
+- **Sync Strategy:** WatermelonDB synchronization via Supabase RPC functions.
+- **Local DB:** SQLite (via WatermelonDB).
+- **Dev Env:** Docker-hosted Supabase for local dev.
 
-## Next Milestones
-1. Initialize Expo project with `expo-dev-client`.
-2. Set up WatermelonDB schema for `measurements` and `instructions`.
-3. Configure Supabase CLI for local Docker development.
+## Current Progress
+- Expo initialized with blank-typescript.
+- Babel configured for Decorators (WatermelonDB).
+- GitHub Repo & Organization established.
+
+## Next Tasks
+- [ ] Define WatermelonDB Schema & Models.
+- [ ] Initialize Supabase local environment.
+- [ ] Implement first sync-ready model (Measurements).
