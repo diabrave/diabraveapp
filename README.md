@@ -9,7 +9,7 @@ At mindske det mentale load for familier ved at skabe en sikker bro ("Relay") me
 ## Tech Stack
 
 - **Frontend:** React Native & Expo
-- **Database:** WatermelonDB (Offline-first)
+- **Database:** SQLite (Offline-first)
 - **Backend:** Supabase (Auth & Postgres)
 - **Licens:** AGPL-3.0
 
@@ -17,7 +17,7 @@ At mindske det mentale load for familier ved at skabe en sikker bro ("Relay") me
 
 Projektet er under aktiv udvikling.
 
-## Standard Expo README.md
+# **_Standard Expo README.md_**
 
 # Welcome to your Expo app 👋
 
