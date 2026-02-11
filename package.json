@@ -9,8 +9,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "lint": "expo lint",
-    "generate-local-database-keys": "npx supabase status -o json > .supabase-keys.json",
-    "test": "jest"
+    "test": "jest",
+    "test:db": "jest __tests__/database/connection_status_integration.test.ts",
+    "generate-local-database-keys": "npx supabase status -o json > .supabase-keys.json"
   },
   "dependencies": {
     "@expo/vector-icons": "^15.0.2",

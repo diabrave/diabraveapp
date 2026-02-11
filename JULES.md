@@ -10,6 +10,7 @@ Dette script sikrer et rent miljø til Jules' snapshots:
 
 ```bash
 # 1. Installer alle dependencies
+
 npm install
 
 # 2. Ryd op i git (vigtigt!)
@@ -20,6 +21,10 @@ git checkout package-lock.json
 # 3. Bekræft installationer
 node -v
 npm -v
+
+# npm tests the database connection
+npm run test:db
+
 
 echo "Setup complete! 🚀"
 ```
