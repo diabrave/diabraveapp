@@ -1,12 +1,31 @@
-import { StyleSheet } from 'react-native';
+import { useEffect, useState } from 'react';
+import { StyleSheet, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
-import { Accordion, FAQ_DATA } from '@/components/ui/accordion';
+import { Accordion, FAQItem } from '@/components/ui/accordion';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { FaqService } from '@/services/faq.service';
 
 export default function HomeScreen() {
+  const [faqs, setFaqs] = useState<FAQItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function loadFaqs() {
+      try {
+        const data = await FaqService.getFaqs();
+        setFaqs(data);
+      } catch (error) {
+        console.error('Failed to load FAQs:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadFaqs();
+  }, []);
+
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
@@ -20,7 +39,13 @@ export default function HomeScreen() {
           <ThemedText type="subtitle" style={styles.sectionTitle}>
             FAQ
           </ThemedText>
-          <Accordion items={FAQ_DATA} />
+          {loading ? (
+            <ThemedView style={styles.center}>
+              <ActivityIndicator size="large" />
+            </ThemedView>
+          ) : (
+            <Accordion items={faqs} />
+          )}
         </ThemedView>
       </SafeAreaView>
     </ThemedView>
@@ -52,5 +77,10 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     marginBottom: Spacing.two,
+  },
+  center: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
